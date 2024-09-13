@@ -1,0 +1,19 @@
+ingress-nginx:
+  enabled: true
+  nameOverride: "ingress-nginx"
+
+  controller:
+    kind: DaemonSet
+    service:
+      loadBalancerSourceGroup:
+      - 10.0.0.0/8
+    loadBalancerIP: 10.1.0.10
+
+  defaultBackend:
+    enabled: true
+    name: default-backend
+    image:
+      tag: "1.5"
+    replicaCount: 1
+    runAsUser: 1000
+    
