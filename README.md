@@ -2,5 +2,5 @@
 
 ```
 helm dependency build
-helm install ingress-nginx .
+helm upgrade --install ingress-nginx . --values values-dev.yaml
 ```
